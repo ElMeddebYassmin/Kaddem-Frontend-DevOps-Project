@@ -70,33 +70,6 @@ export class ListOfClaimsComponent implements OnInit {
     }
 
 
-  /*****************************Liste Des Claims Par Status********************************/
-  listClaimsByStatus(){
-    this.claimService.getClaimByStatus(this.selectedStatus).subscribe((data)=>{
-      this.claims=data;
-      this.totalElements=data['totalElements']
-      this.pageIndex = data['number']
-      this.pageSize = data['size'];
-    },error=>{
-      console.log(error)
-      this.router.navigate(['/errorPage'])
-    });
-  }
-
-
-  /*****************************Liste Des Claims Par Subject********************************/
-  listClaimsBySubject(){
-    console.log("heloooooooooo",this.searchValue)
-    this.claimService.getClaimBySubject(this.searchValue).subscribe((data)=>{
-      this.claims=data;
-      this.totalElements=data['totalElements']
-      this.pageIndex = data['number']
-      this.pageSize = data['size'];
-    },error=>{
-      console.log(error)
-      this.router.navigate(['/errorPage'])
-    });
-  }
 
 
   nextPage(event: PageEvent) {

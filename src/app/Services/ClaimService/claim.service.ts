@@ -10,26 +10,14 @@ import {Claim} from '../../models/Claim';
 export class ClaimService {
 
   claims:Claim[]=[];
-  urlApi=environment.baseUrl+'/Claim';
+  //urlApi=environment.baseUrl+'/Claim';
 
   constructor(private httpClient:HttpClient) { }
 
   /********************************Get Claims************************************/
   getAllClaims(): Observable<Claim[]>{
 
-    return this.httpClient.get<Claim[]>(this.urlApi+'/getAllClaims')
-  }
-
-  /********************************Get Claims By Status************************************/
-  getClaimByStatus(status : string): Observable<Claim[]>{
-    const params = new HttpParams().set('status', status);
-    return this.httpClient.get<Claim[]>(this.urlApi+'/ClaimsByStatus', {params})
-  }
-
-  /********************************Get Claims By Subject************************************/
-  getClaimBySubject(subject : string): Observable<Claim[]>{
-    const params = new HttpParams().set('subject', subject);
-    return this.httpClient.get<Claim[]>(this.urlApi+'/ClaimByName', {params})
+    return this.httpClient.get<Claim[]>('/getAllClaims')
   }
 
 }
