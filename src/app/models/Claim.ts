@@ -3,10 +3,3 @@ export class Claim {
     nomDepart : string;
 
 }
-
-
-export enum Status {
-    PENDING = 'PENDING',
-    INPROGRESS = 'INPROGRESS',
-    RESOLVED = 'RESOLVED'
-}
