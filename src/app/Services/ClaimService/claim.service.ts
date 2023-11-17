@@ -17,7 +17,7 @@ export class ClaimService {
   /********************************Get Claims************************************/
   getAllClaims(): Observable<Claim[]>{
 
-    return this.httpClient.get<Claim[]>('http;//192.168.33.10:8089/Kaddem/departement/retrieve-all-departements')
+    return this.httpClient.get<Claim[]>('http://192.168.33.10:8089/Kaddem/departement/retrieve-all-departements')
   }
 
 }
