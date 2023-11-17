@@ -1,12 +1,7 @@
 export class Claim {
-    id: number;
-    subject : string;
-    description : string;
-    claim_date : Date;
-    status : string;
-    claimantEmail : string;
-    claimantName : string;
-    responseCount : string;
+    idDepartement: number;
+    nomDepart : string;
+
 }
 
 

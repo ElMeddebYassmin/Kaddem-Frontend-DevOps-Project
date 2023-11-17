@@ -60,6 +60,7 @@ export class ListOfClaimsComponent implements OnInit {
   ListOfClaims(request){
     this.claimService.getAllClaims().subscribe((data)=>{
       this.claims=data;
+      console.log("oooooooooooooooooooo", data)
       this.totalElements=data['totalElements']
       this.pageIndex = data['number']
       this.pageSize = data['size'];

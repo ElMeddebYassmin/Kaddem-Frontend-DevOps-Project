@@ -3,16 +3,12 @@
 <div class="main-content">
     <div class="row">
 
-
-
-
         <div class="col-md-12">
-
 
             <div class="card">
                 <div class="card-header card-header-danger">
 
-                    <p class="card-category">5 Réclamations per page, {{ cValue }}</p>
+                    <p class="card-category">5 Departements per page, {{ cValue }}</p>
                 </div>
                 <div class="card-body table-responsive">
                     <table class="table table-hover">
@@ -22,16 +18,8 @@
                         </thead>
                         <tbody>
                         <tr *ngFor="let c of claims ">
-                            <td>{{ c.subject }}</td>
-                            <td>{{ c.description }}</td>
-                            <td>{{c.claim_date}}</td>
-                            <td>
-                                <span class="badge" [ngClass]="getStatusBadgeClass(c.status)">{{ c.status }}</span>
-                            </td>
-                            <td>{{c.claimantName}}</td>
-                            <td>{{c.claimantEmail}}</td>
-                            <td>{{c.responseCount}}</td>
-
+                            <td>{{ c.idDepartement }}</td>
+                            <td>{{ c.nomDepart }}</td>
                         </tr>
                         </tbody>
                     </table>
