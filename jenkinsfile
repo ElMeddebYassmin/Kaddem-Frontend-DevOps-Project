@@ -1,0 +1,53 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Git Checkout') {
+            steps {
+                git branch: 'main',
+                url: 'https://github.com/ElMeddebYassmin/Kaddem-Frontend-DevOps-Project.git'
+            }
+        }
+
+        stage('Maven Clean') {
+            steps {
+                sh 'rm -rf node_modules'
+                sh 'npm cache clean --force'
+            }
+        }
+
+        stage('Maven Install') {
+            steps {
+                sh 'npm install @popperjs/core --legacy-peer-deps'
+                sh 'npm install --legacy-peer-deps'
+            }
+        }
+
+        stage('Maven Build') {
+            steps {
+                sh 'ng build --configuration=production --output-path=dist'
+            }
+        }
+
+        stage('Docker Build') {
+            steps {
+                sh 'docker build -t elmeddebyassmin/angular_project:1.2 .'
+            }
+        }
+
+        stage('Docker Push') {
+            steps {
+                script {
+                    sh 'docker login -u elmeddebyassmin -p dockerhubyassminaccount'
+                    sh 'docker push elmeddebyassmin/angular_project:1.2'
+                }
+            }
+        }
+
+        stage('Run Container') {
+            steps {
+                sh 'docker run -d -p 8765:80 elmeddebyassmin/angular_project:1.2'
+            }
+        }
+    }
+}
